@@ -8,6 +8,15 @@
 import SwiftUI
 import ComposableArchitecture
 
+/// Важное примечание. Выносите Preview в самый верх. Это на самом деле отличная практика, так как мы видим инициализатор нашего представления в самом начале, и сразу можем сказать что происходит внутри, не пролистывая половину файла.
+#Preview {
+    CounterView(
+        store: Store(initialState: CounterFeature.State(), reducer: {
+            CounterFeature()
+        })
+    )
+}
+
 struct CounterView: View {
     let store: StoreOf<CounterFeature>
     
@@ -36,16 +45,31 @@ struct CounterView: View {
                     .background(Color.black.opacity(0.1))
                     .cornerRadius(10)
                 }
+                Button(viewStore.isTimerRunning ? "Stop timer" : "Start timer") {
+                    viewStore.send(.toggleTimerButtonTapped)
+                }
+                .font(.largeTitle)
+                .padding()
+                .background(Color.black.opacity(0.1))
+                .cornerRadius(10)
+                
+                Button("Fact") {
+                    viewStore.send(.factButtonTapped)
+                }
+                .font(.largeTitle)
+                .padding()
+                .background(Color.black.opacity(0.1))
+                .cornerRadius(10)
+                
+                if viewStore.isLoading {
+                    ProgressView()
+                } else if let fact = viewStore.fact {
+                    Text(fact)
+                        .font(.largeTitle)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                }
             }
         }
     }
-}
-
-#Preview {
-    /// в предварительном просмотре мы можем закомментировать Reducer CounterFeature, и в хранилище будет предоставлен редуктор, который не выполняет никаких изменений состояния или эффектов. Это позволяет нам предварительно просмотреть дизайн функции, не беспокоясь о ее логике или поведении.
-    CounterView(
-        store: Store(initialState: CounterFeature.State(), reducer: {
-            CounterFeature()
-        })
-    )
 }
