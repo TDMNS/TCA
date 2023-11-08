@@ -13,7 +13,18 @@
 		483443CB2AFA7573004FB6F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 483443CA2AFA7573004FB6F9 /* Preview Assets.xcassets */; };
 		483443D22AFA759B004FB6F9 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483443D12AFA759B004FB6F9 /* CounterFeature.swift */; };
 		483443D52AFA7644004FB6F9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 483443D42AFA7644004FB6F9 /* ComposableArchitecture */; };
+		483443EA2AFA97E3004FB6F9 /* TCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483443E92AFA97E3004FB6F9 /* TCATests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		483443EB2AFA97E3004FB6F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 483443B82AFA7572004FB6F9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 483443BF2AFA7572004FB6F9;
+			remoteInfo = TCA;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		483443C02AFA7572004FB6F9 /* TCA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCA.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,7 +33,9 @@
 		483443C72AFA7573004FB6F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		483443CA2AFA7573004FB6F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		483443D12AFA759B004FB6F9 /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
-		483443DA2AFA8B5A004FB6F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		483443DA2AFA8B5A004FB6F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		483443E72AFA97E3004FB6F9 /* TCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		483443E92AFA97E3004FB6F9 /* TCATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +47,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		483443E42AFA97E3004FB6F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -41,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				483443C22AFA7572004FB6F9 /* TCA */,
+				483443E82AFA97E3004FB6F9 /* TCATests */,
 				483443C12AFA7572004FB6F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				483443C02AFA7572004FB6F9 /* TCA.app */,
+				483443E72AFA97E3004FB6F9 /* TCATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,10 +78,9 @@
 		483443C22AFA7572004FB6F9 /* TCA */ = {
 			isa = PBXGroup;
 			children = (
-				483443DA2AFA8B5A004FB6F9 /* Info.plist */,
-				483443C32AFA7572004FB6F9 /* TCAApp.swift */,
+				483443E02AFA9660004FB6F9 /* Application */,
 				483443D82AFA78C6004FB6F9 /* MainScreen */,
-				483443C72AFA7573004FB6F9 /* Assets.xcassets */,
+				483443DF2AFA964E004FB6F9 /* Resources */,
 				483443C92AFA7573004FB6F9 /* Preview Content */,
 			);
 			path = TCA;
@@ -98,6 +119,31 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
+		483443DF2AFA964E004FB6F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				483443DA2AFA8B5A004FB6F9 /* Info.plist */,
+				483443C72AFA7573004FB6F9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		483443E02AFA9660004FB6F9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				483443C32AFA7572004FB6F9 /* TCAApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		483443E82AFA97E3004FB6F9 /* TCATests */ = {
+			isa = PBXGroup;
+			children = (
+				483443E92AFA97E3004FB6F9 /* TCATests.swift */,
+			);
+			path = TCATests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +167,24 @@
 			productReference = 483443C02AFA7572004FB6F9 /* TCA.app */;
 			productType = "com.apple.product-type.application";
 		};
+		483443E62AFA97E3004FB6F9 /* TCATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 483443ED2AFA97E3004FB6F9 /* Build configuration list for PBXNativeTarget "TCATests" */;
+			buildPhases = (
+				483443E32AFA97E3004FB6F9 /* Sources */,
+				483443E42AFA97E3004FB6F9 /* Frameworks */,
+				483443E52AFA97E3004FB6F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				483443EC2AFA97E3004FB6F9 /* PBXTargetDependency */,
+			);
+			name = TCATests;
+			productName = TCATests;
+			productReference = 483443E72AFA97E3004FB6F9 /* TCATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -133,6 +197,10 @@
 				TargetAttributes = {
 					483443BF2AFA7572004FB6F9 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					483443E62AFA97E3004FB6F9 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 483443BF2AFA7572004FB6F9;
 					};
 				};
 			};
@@ -153,6 +221,7 @@
 			projectRoot = "";
 			targets = (
 				483443BF2AFA7572004FB6F9 /* TCA */,
+				483443E62AFA97E3004FB6F9 /* TCATests */,
 			);
 		};
 /* End PBXProject section */
@@ -164,6 +233,13 @@
 			files = (
 				483443CB2AFA7573004FB6F9 /* Preview Assets.xcassets in Resources */,
 				483443C82AFA7573004FB6F9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		483443E52AFA97E3004FB6F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,7 +256,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		483443E32AFA97E3004FB6F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				483443EA2AFA97E3004FB6F9 /* TCATests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		483443EC2AFA97E3004FB6F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 483443BF2AFA7572004FB6F9 /* TCA */;
+			targetProxy = 483443EB2AFA97E3004FB6F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		483443CC2AFA7573004FB6F9 /* Debug */ = {
@@ -313,7 +405,7 @@
 				DEVELOPMENT_TEAM = JJ624BWUC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TCA/Info.plist;
+				INFOPLIST_FILE = TCA/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -343,7 +435,7 @@
 				DEVELOPMENT_TEAM = JJ624BWUC6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TCA/Info.plist;
+				INFOPLIST_FILE = TCA/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -359,6 +451,42 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		483443EE2AFA97E3004FB6F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JJ624BWUC6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tdmns.TCATests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCA";
+			};
+			name = Debug;
+		};
+		483443EF2AFA97E3004FB6F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JJ624BWUC6;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tdmns.TCATests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TCA.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TCA";
 			};
 			name = Release;
 		};
@@ -379,6 +507,15 @@
 			buildConfigurations = (
 				483443CF2AFA7573004FB6F9 /* Debug */,
 				483443D02AFA7573004FB6F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		483443ED2AFA97E3004FB6F9 /* Build configuration list for PBXNativeTarget "TCATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				483443EE2AFA97E3004FB6F9 /* Debug */,
+				483443EF2AFA97E3004FB6F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

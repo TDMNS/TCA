@@ -16,7 +16,7 @@ struct CounterFeature: Reducer {
         var isTimerRunning = false
     }
     
-    enum Action {
+    enum Action: Equatable {
         case decrementButtonTapped
         case factButtonTapped
         case factResponse(String)
@@ -25,7 +25,6 @@ struct CounterFeature: Reducer {
         case toggleTimerButtonTapped
     }
     
-    /// При помощи CancelID мы можем отменять какие-либо эффекты
     enum CancelID { case timer }
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
@@ -69,10 +68,8 @@ struct CounterFeature: Reducer {
                         await send(.timerTick)
                     }
                 }
-                /// Если нам нужно что-то отменить, как в данном случае мы помечаем процесс как отменяемый, т.е. cancellable
                 .cancellable(id: CancelID.timer)
             } else {
-                /// А тут происходит непосредственно сама отмена
                 return .cancel(id: CancelID.timer)
             }
         }

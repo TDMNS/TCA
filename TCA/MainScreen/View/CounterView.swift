@@ -8,7 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-/// Важное примечание. Выносите Preview в самый верх. Это на самом деле отличная практика, так как мы видим инициализатор нашего представления в самом начале, и сразу можем сказать что происходит внутри, не пролистывая половину файла.
 #Preview {
     CounterView(
         store: Store(initialState: CounterFeature.State(), reducer: {
