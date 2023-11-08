@@ -44,32 +44,17 @@ final class CounterFeatureTests: XCTestCase {
         }
     }
     
-    /// Попробуем посмотреть отдельно. Вы удвитесь тому, на что способна ТСА.
-//    func testNumberFact() async {
-//        let store = TestStore(initialState: CounterFeature.State()) {
-//            CounterFeature()
-//        }
-//        
-//        await store.send(.factButtonTapped) {
-//            $0.isLoading = true
-//        }
-//        await store.receive(.factResponse("???")) {
-//            $0.isLoading = false
-//            $0.fact = "???"
-//        }
-//    }
-    
     func testNumberFact() async {
         let store = TestStore(initialState: CounterFeature.State()) {
             CounterFeature()
-        } withDependencies: { /// Чтобы не выполнять запрос, воспользуемся withDependencies. Как вы думаете, почему в тестах нам не нужно делать запросы?
+        } withDependencies: {
             $0.numberFact.fetch = { "\($0) is a good number" }
         }
         
         await store.send(.factButtonTapped) {
             $0.isLoading = true
         }
-        await store.receive(.factResponse("0 is a good number")) { /// 100% предсказание для кейса с 0 числом.
+        await store.receive(.factResponse("0 is a good number")) {
             $0.isLoading = false
             $0.fact = "0 is a good number"
         }
