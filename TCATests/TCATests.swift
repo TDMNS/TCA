@@ -43,8 +43,9 @@ final class CounterFeatureTests: XCTestCase {
             $0.isTimerRunning = false
         }
     }
-    /// Не прокатит! Но почему? Все просто, TestStore ждет пока все эффекты выполнятся и поскольку сетевой запрос еще не завершен, мы получаем ошибку.
-//    func testNumberFact() {
+    
+    /// Попробуем посмотреть отдельно. Вы удвитесь тому, на что способна ТСА.
+//    func testNumberFact() async {
 //        let store = TestStore(initialState: CounterFeature.State()) {
 //            CounterFeature()
 //        }
@@ -57,4 +58,20 @@ final class CounterFeatureTests: XCTestCase {
 //            $0.fact = "???"
 //        }
 //    }
+    
+    func testNumberFact() async {
+        let store = TestStore(initialState: CounterFeature.State()) {
+            CounterFeature()
+        } withDependencies: { /// Чтобы не выполнять запрос, воспользуемся withDependencies. Как вы думаете, почему в тестах нам не нужно делать запросы?
+            $0.numberFact.fetch = { "\($0) is a good number" }
+        }
+        
+        await store.send(.factButtonTapped) {
+            $0.isLoading = true
+        }
+        await store.receive(.factResponse("0 is a good number")) { /// 100% предсказание для кейса с 0 числом.
+            $0.isLoading = false
+            $0.fact = "0 is a good number"
+        }
+    }
 }

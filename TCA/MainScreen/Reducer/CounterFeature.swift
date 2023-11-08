@@ -28,6 +28,7 @@ struct CounterFeature: Reducer {
     enum CancelID { case timer }
     
     @Dependency(\.continuousClock) var clock
+    @Dependency(\.numberFact) var numberFact
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
@@ -40,9 +41,7 @@ struct CounterFeature: Reducer {
             state.fact = nil
             state.isLoading = true
             return .run { [count = state.count] send in
-                guard let url = URL(string: "http://numbersapi.com/\(count)") else { return }
-                let (data, _) = try await URLSession.shared.data(from: url)
-                let fact = String(decoding: data, as: UTF8.self)
+                guard let fact = try await numberFact.fetch(count) else { return }
                 await send(.factResponse(fact))
             }
             
@@ -65,7 +64,7 @@ struct CounterFeature: Reducer {
             state.isTimerRunning.toggle()
             if state.isTimerRunning {
                 return .run { send in
-                    for await _ in self.clock.timer(interval: .seconds(1)) {
+                    for await _ in clock.timer(interval: .seconds(1)) {
                         await send(.timerTick)
                     }
                 }

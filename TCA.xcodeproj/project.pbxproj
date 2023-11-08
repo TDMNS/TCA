@@ -14,6 +14,7 @@
 		483443D22AFA759B004FB6F9 /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483443D12AFA759B004FB6F9 /* CounterFeature.swift */; };
 		483443D52AFA7644004FB6F9 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 483443D42AFA7644004FB6F9 /* ComposableArchitecture */; };
 		483443EA2AFA97E3004FB6F9 /* TCATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483443E92AFA97E3004FB6F9 /* TCATests.swift */; };
+		48B9CDA22AFB95EF00D59E73 /* NumberFactClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B9CDA12AFB95EF00D59E73 /* NumberFactClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		483443DA2AFA8B5A004FB6F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		483443E72AFA97E3004FB6F9 /* TCATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TCATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		483443E92AFA97E3004FB6F9 /* TCATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCATests.swift; sourceTree = "<group>"; };
+		48B9CDA12AFB95EF00D59E73 /* NumberFactClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		483443D82AFA78C6004FB6F9 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				48B9CDA02AFB95DF00D59E73 /* Helper */,
 				483443D72AFA78AD004FB6F9 /* View */,
 				483443D62AFA78A6004FB6F9 /* Reducer */,
 			);
@@ -142,6 +145,14 @@
 				483443E92AFA97E3004FB6F9 /* TCATests.swift */,
 			);
 			path = TCATests;
+			sourceTree = "<group>";
+		};
+		48B9CDA02AFB95DF00D59E73 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				48B9CDA12AFB95EF00D59E73 /* NumberFactClient.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +264,7 @@
 				483443D22AFA759B004FB6F9 /* CounterFeature.swift in Sources */,
 				483443C62AFA7572004FB6F9 /* CounterView.swift in Sources */,
 				483443C42AFA7572004FB6F9 /* TCAApp.swift in Sources */,
+				48B9CDA22AFB95EF00D59E73 /* NumberFactClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
