@@ -43,4 +43,18 @@ final class CounterFeatureTests: XCTestCase {
             $0.isTimerRunning = false
         }
     }
+    /// Не прокатит! Но почему? Все просто, TestStore ждет пока все эффекты выполнятся и поскольку сетевой запрос еще не завершен, мы получаем ошибку.
+//    func testNumberFact() {
+//        let store = TestStore(initialState: CounterFeature.State()) {
+//            CounterFeature()
+//        }
+//        
+//        await store.send(.factButtonTapped) {
+//            $0.isLoading = true
+//        }
+//        await store.receive(.factResponse("???")) {
+//            $0.isLoading = false
+//            $0.fact = "???"
+//        }
+//    }
 }
